@@ -16,17 +16,29 @@ connetDB();
 connectCloudinary();
 
 // -------- CORS Configuration --------
+// -------- CORS Configuration --------
 const allowedOrigins = [
   'https://doc-appointment-hoisting.vercel.app',
-  'https://doc-appointment-hoisting-ifxs.vercel.app'
+  'https://doc-appointment-hoisting-ifxs.vercel.app',
+  'https://doc-appointment-hoisting-zy5z.vercel.app',
+  'https://doc-appointment-hoisting-ueii.vercel.app'
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
-app.options('*', cors({ origin: allowedOrigins, credentials: true }));
+app.options('*', cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 
 
 // -------- middlewares ---------
