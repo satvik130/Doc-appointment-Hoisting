@@ -21,7 +21,8 @@ const allowedOrigins = [
   'https://doc-appointment-hoisting.vercel.app',
   'https://doc-appointment-hoisting-ifxs.vercel.app',
   'https://doc-appointment-hoisting-zy5z.vercel.app',
-  'https://doc-appointment-hoisting-ueii.vercel.app'
+  'https://doc-appointment-hoisting-ueii.vercel.app',
+  'https://doc-appointment-hoisting.vercel.app'
 ];
 
 app.use(cors({
